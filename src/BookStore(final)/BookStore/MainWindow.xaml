@@ -1,0 +1,19 @@
+﻿<Window x:Class="BookStore.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BookStore"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="419.9" Width="510.3">
+    <Grid Margin="0,0,2,-5.6">
+
+        <TextBox x:Name="UserName" Margin="201,0,133,127.9" TextWrapping="Wrap" FontSize="24" Height="35" VerticalAlignment="Bottom"/>
+        <Button x:Name="LogIn" Content="登录" Height="42" Margin="198,0,131.5,23" VerticalAlignment="Bottom" Background="#FF5B7BB8" BorderBrush="{x:Null}" Click="LogIn_Click"/>
+        <Label x:Name="label" Content="用户名" HorizontalAlignment="Left" Margin="127.5,0,0,120.4" Width="83.5" FontSize="18" Height="41.7" VerticalAlignment="Bottom"/>
+        <Label x:Name="label_Copy" Content="密码" HorizontalAlignment="Left" Margin="127.5,0,0,75.3" Width="83.5" FontSize="18" Height="37.5" VerticalAlignment="Bottom"/>
+        <Image x:Name="image" Margin="0,-19.5,-3,176.1" Source="登陆背景.jpg"/>
+        <PasswordBox x:Name="PassWord" HorizontalAlignment="Left" Height="28.3" Margin="201,281.7,0,0" VerticalAlignment="Top" Width="155.3" FontSize="24"/>
+
+    </Grid>
+</Window>

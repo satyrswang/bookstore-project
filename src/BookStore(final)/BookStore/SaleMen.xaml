@@ -1,0 +1,520 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BookStore"
+        xmlns:System="clr-namespace:System;assembly=mscorlib" x:Class="BookStore.SaleMen"
+        mc:Ignorable="d"
+        ResizeMode="NoResize" Title="SaleMen" Height="675" Width="1026">
+    <Window.Resources>
+        <!-- Resource dictionary entries should be defined here. -->
+
+        <ControlTemplate x:Key="ButtonControlTemplate1" TargetType="{x:Type Button}">
+            <ControlTemplate.Resources>
+                <Storyboard x:Key="Storyboard1">
+                	<DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="glow" Storyboard.TargetProperty="(UIElement.Opacity)">
+                		<SplineDoubleKeyFrame KeyTime="00:00:00.3000000" Value="1"/>
+                	</DoubleAnimationUsingKeyFrames>
+                </Storyboard>
+                <Storyboard x:Key="Storyboard2">
+                	<DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="glow" Storyboard.TargetProperty="(UIElement.Opacity)">
+                		<SplineDoubleKeyFrame KeyTime="00:00:00.3000000" Value="0"/>
+                	</DoubleAnimationUsingKeyFrames>
+                </Storyboard>
+            </ControlTemplate.Resources>
+        	<Grid>
+        		<Border BorderBrush="#FFFEFEFE" BorderThickness="1" CornerRadius="5">
+        			<Border x:Name="border" Background="#7F000000" BorderBrush="Black" BorderThickness="1" CornerRadius="5">
+        				<Grid Margin="-1,-1,-1,0">
+        					<Grid.RowDefinitions>
+        						<RowDefinition Height="0.495*"/>
+        						<RowDefinition Height="0.505*"/>
+        					</Grid.RowDefinitions>
+        					<Border x:Name="glow" BorderBrush="{x:Null}" Margin="0" BorderThickness="1" CornerRadius="5" Grid.RowSpan="2" Opacity="0">
+        						<Border.Background>
+        							<RadialGradientBrush Center="0.485,1.053" GradientOrigin="0.485,1.053" RadiusX="0.818" RadiusY="1.214">
+        								<RadialGradientBrush.RelativeTransform>
+        									<TransformGroup>
+        										<ScaleTransform CenterX="0.5" CenterY="0.5" ScaleX="0.95"/>
+        										<SkewTransform CenterX="0.5" CenterY="0.5"/>
+        										<RotateTransform CenterX="0.5" CenterY="0.5"/>
+        										<TranslateTransform/>
+        									</TransformGroup>
+        								</RadialGradientBrush.RelativeTransform>
+        								<GradientStop Color="#CC15F9B3" Offset="0.003"/>
+        								<GradientStop Color="#0021F2EC" Offset="1"/>
+        							</RadialGradientBrush>
+        						</Border.Background>
+        					</Border>
+        					<ContentPresenter HorizontalAlignment="Center" Margin="0" VerticalAlignment="Center" Grid.RowSpan="2"/>
+        					<Border x:Name="shine" BorderBrush="{x:Null}" BorderThickness="1" CornerRadius="5,5,0,0" Margin="0,-0.667,0,0.667">
+        						<Border.Background>
+        							<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+        								<LinearGradientBrush.RelativeTransform>
+        									<TransformGroup>
+        										<ScaleTransform CenterX="0.5" CenterY="0.5"/>
+        										<SkewTransform CenterX="0.5" CenterY="0.5"/>
+        										<RotateTransform Angle="-6.513" CenterX="0.5" CenterY="0.5"/>
+        										<TranslateTransform/>
+        									</TransformGroup>
+        								</LinearGradientBrush.RelativeTransform>
+        								<GradientStop Color="#99FFFFFF" Offset="0"/>
+        								<GradientStop Color="#33FFFFFF" Offset="0.991"/>
+        							</LinearGradientBrush>
+        						</Border.Background>
+        					</Border>
+        				</Grid>
+        			</Border>
+        		</Border>
+        	</Grid>
+            <ControlTemplate.Triggers>
+                <Trigger Property="IsPressed" Value="True">
+                    <Setter Property="Visibility" TargetName="glow" Value="Hidden"/>
+                    <Setter Property="Opacity" TargetName="shine" Value="0.4"/>
+                    <Setter Property="Background" TargetName="border" Value="#CC000000"/>
+                </Trigger>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Trigger.EnterActions>
+                        <BeginStoryboard x:Name="Storyboard1_BeginStoryboard" Storyboard="{StaticResource Storyboard1}"/>
+                    </Trigger.EnterActions>
+                    <Trigger.ExitActions>
+                        <BeginStoryboard x:Name="Storyboard2_BeginStoryboard" Storyboard="{StaticResource Storyboard2}"/>
+                    </Trigger.ExitActions>
+                </Trigger>
+            </ControlTemplate.Triggers>
+        </ControlTemplate>
+        <SolidColorBrush x:Key="TextBox.Static.Border" Color="#FFABAdB3"/>
+        <SolidColorBrush x:Key="TextBox.MouseOver.Border" Color="#FF7EB4EA"/>
+        <SolidColorBrush x:Key="TextBox.Focus.Border" Color="#FF569DE5"/>
+        <Style x:Key="TextBoxStyle1" TargetType="{x:Type TextBox}">
+        	<Setter Property="Background" Value="{DynamicResource {x:Static SystemColors.WindowBrushKey}}"/>
+        	<Setter Property="BorderBrush" Value="{StaticResource TextBox.Static.Border}"/>
+        	<Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+        	<Setter Property="BorderThickness" Value="1"/>
+        	<Setter Property="KeyboardNavigation.TabNavigation" Value="None"/>
+        	<Setter Property="HorizontalContentAlignment" Value="Left"/>
+        	<Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+        	<Setter Property="AllowDrop" Value="true"/>
+        	<Setter Property="ScrollViewer.PanningMode" Value="VerticalFirst"/>
+        	<Setter Property="Stylus.IsFlicksEnabled" Value="False"/>
+        	<Setter Property="Template">
+        		<Setter.Value>
+        			<ControlTemplate TargetType="{x:Type TextBox}">
+
+                        <!--背景、边框-->
+        				<Border x:Name="border" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}"     SnapsToDevicePixels="True" CornerRadius="5">
+        					<Border.Background>
+        						<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+        							<GradientStop Color="#FFE3E3E3" Offset="0"/>
+        							<GradientStop Color="White" Offset="1"/>
+        						</LinearGradientBrush>
+        					</Border.Background>
+        					<ScrollViewer x:Name="PART_ContentHost" Focusable="false" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden"/>
+        				</Border>
+        				<ControlTemplate.Triggers>
+        					<Trigger Property="IsEnabled" Value="false">
+        						<Setter Property="Opacity" TargetName="border" Value="0.56"/>
+        					</Trigger>
+        					<Trigger Property="IsMouseOver" Value="true">
+        						<Setter Property="BorderBrush" TargetName="border" Value="{StaticResource TextBox.MouseOver.Border}"/>
+        					</Trigger>
+        					<Trigger Property="IsKeyboardFocused" Value="true">
+        						<Setter Property="BorderBrush" TargetName="border" Value="{StaticResource TextBox.Focus.Border}"/>
+        					</Trigger>
+        				</ControlTemplate.Triggers>
+        			</ControlTemplate>
+        		</Setter.Value>
+        	</Setter>
+            <Style.Triggers>
+                <MultiTrigger>
+                    <MultiTrigger.Conditions>
+                        <Condition Property="IsInactiveSelectionHighlightEnabled" Value="true"/>
+                        <Condition Property="IsSelectionActive" Value="false"/>
+                    </MultiTrigger.Conditions>
+                    <Setter Property="SelectionBrush" Value="{DynamicResource {x:Static SystemColors.InactiveSelectionHighlightBrushKey}}"/>
+                </MultiTrigger>
+            </Style.Triggers>
+        </Style>
+
+    </Window.Resources>
+	<Grid Margin="0,0,-8,-5.5" Loaded="Grid_Loaded">
+		<Grid.RowDefinitions>
+			<RowDefinition Height="90*"/>
+			<RowDefinition Height="56*"/>
+			<RowDefinition Height="505*"/>
+		</Grid.RowDefinitions>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="262*"/>
+			<ColumnDefinition Width="765*"/>
+		</Grid.ColumnDefinitions>
+		<Grid.Background>
+			<ImageBrush ImageSource="homepage.jpg"/>
+		</Grid.Background>
+		<Button x:Name="Mem1" Content="会员管理" Margin="57.5,24.931,74,0" Height="130" VerticalAlignment="Top" Click="Mem1_Click" Grid.Row="2" Template="{DynamicResource ButtonControlTemplate1}" Foreground="White" Width="130">
+			<Button.Background>
+				<LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+					<GradientStop Color="#FFF3F3F3" Offset="0"/>
+					<GradientStop Color="#FFEBEBEB" Offset="0.5"/>
+					<GradientStop Color="#FFDDDDDD" Offset="0.5"/>
+					<GradientStop Color="#FFBEC3C9" Offset="1"/>
+				</LinearGradientBrush>
+			</Button.Background>
+		</Button>
+		<Button x:Name="Trad" Content="销售管理" Margin="57.622,183.43,74.122,190.405" Click="Trad_Click" Grid.Row="2" Template="{DynamicResource ButtonControlTemplate1}" Foreground="White" Width="130" Height="130"/>
+		<Button x:Name="Trad_Copy" Content="预定管理" Margin="57.622,0,74.122,31" Height="130" VerticalAlignment="Bottom" Click="Trad_Copy_Click" Grid.Row="2" Template="{DynamicResource ButtonControlTemplate1}" Foreground="White" Width="130"/>
+		<TabControl x:Name="TradeManagement" Margin="-0.5,16.803,0,0" BorderBrush="{x:Null}" Grid.Column="1" Grid.Row="1" Grid.RowSpan="2" Visibility="Hidden" d:IsHidden="True">
+			<TabItem Header="交易记录查询" Margin="-2,-2,-35,-1" Background="#FF5B7BB8" Height="38">
+				<Grid Background="White" Margin="0,-6.5,0,2">
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition Width="61*"/>
+						<ColumnDefinition Width="703*"/>
+					</Grid.ColumnDefinitions>
+					<Grid Height="49" VerticalAlignment="Top" Margin="1,155,-8.245,0" Background="#FFF1F9FD" Grid.ColumnSpan="2"/>
+					<Grid Height="49" VerticalAlignment="Top" Margin="1,47,-8.245,0" Background="#FFF1F9FD" Grid.ColumnSpan="2"/>
+					<TextBox x:Name="isbn" Margin="133.167,57.22,364.552,0" TextWrapping="Wrap" Text="" FontSize="16" Height="30" VerticalAlignment="Top" Grid.Column="1"/>
+					<TextBox x:Name="tra_id"  FontSize="16" Height="30" Margin="133.167,113.387,364.552,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Grid.Column="1"/>
+					<Label x:Name="label" Content="书籍ID" HorizontalAlignment="Left" Margin="48.5,55.5,0,0" FontSize="16" Width="67.061" Height="31.72" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
+					<Label x:Name="label1_Copy1" Content="交易流水单号" Margin="-11.781,111.667,0,0" VerticalAlignment="Top" FontSize="16" Height="31.72" HorizontalAlignment="Left" Width="123.929" Grid.Column="1"/>
+					<Label x:Name="label2_Copy1" Content="会员ID" HorizontalAlignment="Left" Margin="-11.781,164.833,0,0" VerticalAlignment="Top" FontSize="16" Height="31.72" Width="67.061" Grid.Column="1"/>
+					<TextBox x:Name="mem_id"  FontSize="16" Height="30" Margin="133.167,166.553,364.552,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Grid.Column="1"/>
+					<Button x:Name="button" Content="查找" HorizontalAlignment="Right" Margin="0,159.095,190.793,0" Width="81" FontSize="18" Height="41" VerticalAlignment="Top" Grid.Column="1" d:LayoutOverrides="HorizontalAlignment" Background="#FF5B7BB8" BorderBrush="{x:Null}" Click="button_Click"/>
+					<DataGrid x:Name="databox" Margin="-11.781,240.197,90.071,55.163" Grid.Column="1" Background="White"/>
+				</Grid>
+			</TabItem>
+			<TabItem Header="出售图书" Margin="35.75,-2,-35.75,0.5" Background="#FF5B7BB8" BorderBrush="{x:Null}" Width="123">
+				<Grid Background="White" Margin="-13.5,-4.5,-7.5,0">
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition/>
+					</Grid.ColumnDefinitions>
+					<Grid Height="107.5" VerticalAlignment="Top" Margin="1,30.5,12.755,0" Background="#FFF1F9FD"/>
+					<Grid Margin="1,0,12.755,70.766" Background="#FFF1F9FD" Height="49" VerticalAlignment="Bottom"/>
+					<Grid Height="49" VerticalAlignment="Top" Margin="1,198.5,12.755,0" Background="#FFF1F9FD"/>
+					<GroupBox x:Name="groupBox" Header="预定" Margin="54.16,22.263,128.647,0" VerticalAlignment="Top" Height="116.441" FontSize="14">
+						<ComboBox x:Name="res_id" HorizontalAlignment="Left" Height="30" Margin="160.5,49.52,0,0" VerticalAlignment="Top" Width="174.5" FontSize="16"/>
+
+					</GroupBox>
+					<Label x:Name="label1_Copy2" Content="预订流水单号" FontSize="16" HorizontalAlignment="Left" Margin="93.602,88.39,0,0" VerticalAlignment="Top" Height="29.092" Width="105.972" HorizontalContentAlignment="Right"/>
+					<TextBox x:Name="mem_id1"  FontSize="16" Height="30" Margin="222.351,48.46,382.149,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top"/>
+					<Button x:Name="button_Copy4" Click="button_Copy4_Click" Content="查找" Margin="0,45.448,265.793,0" VerticalAlignment="Top" Height="30" FontSize="16" HorizontalAlignment="Right" Width="60" Background="#FF5B7BB8" BorderBrush="{x:Null}" RenderTransformOrigin="-0.313,0.576"/>
+					<Button x:Name="button1_Copy5" Click="button1_Copy5_Click" Content="添 加" Margin="0,87.482,265.793,0" VerticalAlignment="Top" Height="30" FontSize="16" HorizontalAlignment="Right" Width="60" Background="#FF5B7BB8" BorderBrush="{x:Null}"/>
+					<Label x:Name="label_Copy" Content="书籍ID" FontSize="16" Margin="93.602,203.876,0,0" VerticalAlignment="Top" Height="29.09" HorizontalAlignment="Left" Width="109.414" HorizontalContentAlignment="Right"/>
+					<Label x:Name="label1_Copy3" Content="交易流水单号" FontSize="16" Margin="93.602,157.774,0,0" Height="29.092" VerticalAlignment="Top" HorizontalAlignment="Left" Width="109.414" HorizontalContentAlignment="Right"/>
+					<Label x:Name="label2_Copy2" Content="交易数量" FontSize="16" Margin="0,204.994,262.793,0" HorizontalAlignment="Right" Width="109.414" HorizontalContentAlignment="Right" Height="44.663" VerticalAlignment="Top"/>
+					<TextBox x:Name="isbn1" Height="30" Margin="222.351,205.376,384.685,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" FontSize="16"/>
+					<TextBox x:Name="tra_id1"  FontSize="16" Margin="222.351,156.274,384.685,0" TextWrapping="Wrap" Text="" Height="30" VerticalAlignment="Top" IsEnabled="False"/>
+					<TextBox x:Name="amount1"  FontSize="16" Height="30"  Margin="0,205.904,128.647,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" HorizontalAlignment="Right" Width="111.94" d:LayoutOverrides="VerticalAlignment"/>
+					<Button x:Name="button1_Copy6" Click="button1_Copy6_Click" Content="添 加" Margin="0,154.994,265.793,0" FontSize="16" HorizontalAlignment="Right" Width="60" Height="30" Background="#FF5B7BB8" BorderBrush="{x:Null}" VerticalAlignment="Top"/>
+					<ListView x:Name="bookbox" Height="109.468" Margin="57.602,0,128.647,134.65" VerticalAlignment="Bottom">
+						<ListView.View>
+							<GridView>
+								<GridViewColumn Header="书号                                                           购买量                    库存量" Width="580"/>
+							</GridView>
+						</ListView.View>
+					</ListView>
+					<Label x:Name="label3_Copy2" Content="支付方式" FontSize="16" Margin="90.16,0,0,76.572" VerticalAlignment="Bottom" Height="29.092" HorizontalAlignment="Left" Width="109.414" HorizontalContentAlignment="Right"/>
+					<ComboBox x:Name="trade_way" Margin="225.325,0,382.149,77.209" VerticalAlignment="Bottom" Height="30" FontSize="16" Text="现金">
+						<ComboBoxItem x:Name="现金2" Content="现金"/>
+						<ComboBoxItem x:Name="支付宝2" Content="支付宝"/>
+						<ComboBoxItem x:Name="微信" Content="微信"/>
+						<ComboBoxItem x:Name="银联" Content="银联"/>
+					</ComboBox>
+					<Label x:Name="label2_Copy3" Content="交易金额" FontSize="16" Margin="90.16,0,0,33.527" VerticalAlignment="Bottom" Height="29.09" HorizontalAlignment="Left" Width="109.414" HorizontalContentAlignment="Right"/>
+					<TextBox x:Name="trade_money"  FontSize="16" Height="30"  Margin="225.325,0,382.149,34.163" TextWrapping="Wrap" Text="" VerticalAlignment="Bottom" IsEnabled="False"/>
+					<Button x:Name="button1_Copy7" Click="button1_Copy7_Click" Content="确认" Margin="0,0,265.793,78.65" FontSize="16" Height="30" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="60" Background="#FF5B7BB8" BorderBrush="{x:Null}"/>
+					<Button x:Name="button_Copy5" Click="button_Copy5_Click" Content="提交" Margin="0,0,152.087,16.163" VerticalAlignment="Bottom" Height="41" FontSize="18" HorizontalAlignment="Right" Width="81" Background="#FF5B7BB8" BorderBrush="{x:Null}"/>
+					<Button x:Name="button1_Copy8" Click="button1_Copy8_Click" Content="取 消" HorizontalAlignment="Right" Margin="0,0,43.934,16.163" VerticalAlignment="Bottom" Width="81" Height="41" FontSize="18" Background="#FF5B7BB8" BorderBrush="{x:Null}"/>
+					<Label x:Name="label1_Copy6" Content="会员ID" FontSize="16" HorizontalAlignment="Left" Margin="93.602,46.39,0,0" VerticalAlignment="Top" Height="29.092" Width="105.972" HorizontalContentAlignment="Right"/>
+				</Grid>
+			</TabItem>
+		</TabControl>
+		<TabControl x:Name="ReserveManagement" Margin="-0.5,15.303,0,0" BorderBrush="{x:Null}" Grid.Column="1" Grid.Row="1" Grid.RowSpan="2" Visibility="Hidden" d:IsHidden="True">
+			<TabItem Header="预定记录查询" Margin="0" Background="#FF5B7BB8" BorderBrush="{x:Null}" FontSize="14" Height="38" Width="123">
+				<Grid Background="White" Margin="-15,-3,-15,-7.5">
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition Width="197*"/>
+						<ColumnDefinition Width="592*"/>
+					</Grid.ColumnDefinitions>
+					<Grid.RowDefinitions>
+						<RowDefinition/>
+					</Grid.RowDefinitions>
+					<Grid Margin="1,138.5,21.755,0" Background="#FFF1F9FD" Height="49" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
+					<Grid Margin="1,32,21.755,0" Background="#FFF1F9FD" Height="49" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
+					<TextBox x:Name="isbn2"  FontSize="21.333" Height="30" Margin="190.397,95.938,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" HorizontalAlignment="Left" Width="200" Grid.ColumnSpan="2"/>
+					<Label x:Name="label_Copy2" Content="预定流水单号" Margin="61.957,39.847,0,0" FontSize="16" Height="40.926" VerticalAlignment="Top" HorizontalAlignment="Left" Width="108.94"/>
+					<Label x:Name="label1_Copy5" Content="书籍ID" Margin="108.821,95.938,0,0" VerticalAlignment="Top" FontSize="16" Height="30" HorizontalAlignment="Left" Width="62.076"/>
+					<Label x:Name="label2_Copy5" Content="会员ID" Margin="108.821,148.604,0,0" VerticalAlignment="Top" FontSize="16" Height="30" HorizontalAlignment="Left" Width="62.076"/>
+					<TextBox x:Name="mem_id2"  FontSize="21.333" Height="30" Margin="190.397,148.604,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" HorizontalAlignment="Left" Width="200" Grid.ColumnSpan="2"/>
+
+					<Button x:Name="button_Copy7" Click="button_Copy7_Click" Content="查找" Margin="0,206.604,103.885,0" FontSize="18" Height="41" VerticalAlignment="Top" HorizontalAlignment="Right" Width="81" Background="#FF5B7BB8" BorderBrush="{x:Null}" Foreground="#FF080000" Grid.Column="1"/>
+					<DataGrid x:Name="rev_box" Margin="61.957,0,103.885,41.163" BorderBrush="#FFACACAC" Height="194.06" VerticalAlignment="Bottom" Grid.ColumnSpan="2">
+						<DataGrid.Background>
+							<LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+								<GradientStop Color="#FFF0F0F0" Offset="0"/>
+								<GradientStop Color="White" Offset="1"/>
+							</LinearGradientBrush>
+						</DataGrid.Background>
+					</DataGrid>
+					<TextBox x:Name="rev_id"  FontSize="21.333" Height="30" Margin="190.397,41.938,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" HorizontalAlignment="Left" Width="200" Grid.ColumnSpan="2"/>
+				</Grid>
+			</TabItem>
+			<TabItem Header="预定图书" Margin="-0.5,0.083,0,-0.084" BorderBrush="#FF114D85" Background="#FF5B7BB8" HorizontalAlignment="Left" Width="123" d:LayoutOverrides="VerticalAlignment, TopMargin, BottomMargin" FontSize="14" Height="38">
+				<Grid Background="White" Margin="0,-4.094,-5,-4.5" Height="503.86" VerticalAlignment="Bottom">
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition/>
+						<ColumnDefinition Width="0*"/>
+						<ColumnDefinition Width="0*"/>
+						<ColumnDefinition Width="759*"/>
+					</Grid.ColumnDefinitions>
+					<Grid Margin="0,125,-3.245,0" Background="#FFF1F9FD" Height="49" VerticalAlignment="Top" Grid.Column="3"/>
+					<Grid Margin="0,18.5,-3.245,0" Background="#FFF1F9FD" Height="49" VerticalAlignment="Top" Grid.Column="3"/>
+					<Label x:Name="label_Copy1" Content="预定流水单号" FontSize="16" Margin="41.939,27,0,0" VerticalAlignment="Top" Height="35" Grid.Column="3" d:LayoutOverrides="TopMargin, BottomMargin" HorizontalAlignment="Left" Width="119.684"/>
+					<Label x:Name="label3_Copy3" Content="会员ID" FontSize="16" Margin="90.54,80.092,0,0" Height="35" VerticalAlignment="Top" Grid.Column="3" d:LayoutOverrides="TopMargin, BottomMargin" HorizontalAlignment="Left" Width="68.083"/>
+					<Label x:Name="label4_Copy1" Content="书籍ID" FontSize="16" Margin="90.54,133.349,0,0" Grid.Column="3" Height="36.438" VerticalAlignment="Top" d:LayoutOverrides="TopMargin, BottomMargin" HorizontalAlignment="Left" Width="68.083"/>
+					<Label x:Name="label5_Copy1" Content="预定数量" FontSize="16" Margin="75.962,186.44,0,168.419" Grid.Column="3" d:LayoutOverrides="TopMargin, BottomMargin" HorizontalAlignment="Left" Width="88.661"/>
+					<TextBox x:Name="rev_id1" Height="30" Margin="163.827,27,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" FontSize="21.333" Grid.Column="3" HorizontalAlignment="Left" Width="200" d:LayoutOverrides="HorizontalAlignment, TopMargin, BottomMargin" IsEnabled="False"/>
+					<TextBox x:Name="mem_id3" Margin="163.827,80.092,0,0" TextWrapping="Wrap" Text="" FontSize="21.333" Height="30" VerticalAlignment="Top" Grid.Column="3" HorizontalAlignment="Left" Width="200" d:LayoutOverrides="HorizontalAlignment, TopMargin, BottomMargin"/>
+					<TextBox x:Name="isbn3"  FontSize="21.333" Height="30" Margin="163.827,133.287,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Grid.Column="3" HorizontalAlignment="Left" Width="200" d:LayoutOverrides="HorizontalAlignment, TopMargin, BottomMargin"/>
+					<TextBox x:Name="amount"  FontSize="21.333"  Margin="163.827,186.44,0,0" TextWrapping="Wrap" Text="" Grid.Column="3" HorizontalAlignment="Left" Width="200" Height="30" VerticalAlignment="Top"/>
+					<Button x:Name="button_Copy6" Click="button_Copy6_Click" Content="确  认" Margin="0,0,146.037,33.577" VerticalAlignment="Bottom" FontSize="18" Height="41" Grid.Column="3" Background="#FF5B7BB8" BorderBrush="{x:Null}" Foreground="#FF080000" d:LayoutOverrides="TopMargin, BottomMargin" HorizontalAlignment="Right" Width="81.114"/>
+					<Button x:Name="button1_Copy9" Click="button1_Copy9_Click" Content="取  消" HorizontalAlignment="Right" Margin="0,0,39.202,33.577" VerticalAlignment="Bottom" Width="81" FontSize="18" Height="41" Grid.Column="3" Background="#FF5B7BB8" BorderBrush="{x:Null}" Foreground="#FF110000" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin"/>
+					<ListView x:Name="listView_Copy" Margin="55.439,0,255.316,91.098" Grid.Column="3" Height="153.167" VerticalAlignment="Bottom">
+						<ListView.View>
+							<GridView>
+								<GridViewColumn Header="书号                                                预订量" Width="440"/>
+							</GridView>
+						</ListView.View>
+					</ListView>
+					<Button x:Name="button1_Copy10" Click="button1_Copy10_Click" Content="添  加" HorizontalAlignment="Right" Margin="0,186.44,255.316,0" Width="72.566" FontSize="18" Grid.Column="3" Background="#FF5B7BB8" BorderBrush="{x:Null}" Foreground="Black" Height="35.001" VerticalAlignment="Top"/>
+				</Grid>
+			</TabItem>
+		</TabControl>
+		<TabControl x:Name="MemManagement" Margin="-0.5,-0.53,0,-0.431" Background="{x:Null}" Height="561.53" VerticalAlignment="Top" BorderBrush="{x:Null}" Grid.Column="1" Grid.Row="1" Grid.RowSpan="2" Visibility="Hidden">
+			<TabItem Header="会员个人信息更新" Height="38" Margin="242.829,0,-242.829,-15.65" VerticalAlignment="Bottom" BorderBrush="{x:Null}" HorizontalAlignment="Left" Width="123" Background="#FF5B7BB8">
+				<Grid Background="White" Margin="-4,11.5,-4,-6.47" Height="506.5" VerticalAlignment="Top">
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition Width="167*"/>
+						<ColumnDefinition Width="596*"/>
+					</Grid.ColumnDefinitions>
+					<Grid Margin="1,0,-0.245,145" Background="#FFF1F9FD" Height="49" VerticalAlignment="Bottom" Grid.ColumnSpan="2"/>
+					<Grid Margin="1,215,-0.245,242.5" Background="#FFF1F9FD" Grid.ColumnSpan="2"/>
+					<Grid Height="49" VerticalAlignment="Top" Margin="1,117.5,-0.245,0" Background="#FFF1F9FD" Grid.ColumnSpan="2">
+						<Label x:Name="label11_Copy" Content="*请输入11位手机号" HorizontalAlignment="Right" Margin="0,11.343,185.078,10.324" Width="168.667" Foreground="#FFD1441B"/>
+					</Grid>
+					<Grid Height="49" VerticalAlignment="Top" Margin="1,24.5,-0.245,0" Background="#FFF1F9FD" Grid.ColumnSpan="2"/>
+					<Label x:Name="label1" Content="姓名" Margin="0,79.926,-29.058,0" VerticalAlignment="Top" Height="37.593" FontSize="16" HorizontalContentAlignment="Right" HorizontalAlignment="Right" Width="100.567"/>
+					<Label x:Name="label2" Content="联系方式" Margin="0,126.537,-29.058,0" VerticalAlignment="Top" Height="30.834" FontSize="16" HorizontalContentAlignment="Right" HorizontalAlignment="Right" Width="100.567"/>
+					<Label x:Name="label3" Content="性别" Margin="0,171.648,-29.058,0" FontSize="16" Height="37.592" VerticalAlignment="Top" HorizontalContentAlignment="Right" HorizontalAlignment="Right" Width="100.567"/>
+					<Label x:Name="label4" Content="生日" Margin="0,224,-29.058,0" FontSize="16" HorizontalContentAlignment="Right" Height="30" VerticalAlignment="Top" HorizontalAlignment="Right" Width="100.567"/>
+					<Label x:Name="label5" Content="住址" Margin="0,272.37,-29.058,0" FontSize="16" Height="33.834" VerticalAlignment="Top" HorizontalContentAlignment="Right" HorizontalAlignment="Right" Width="100.908"/>
+					<Label x:Name="label6" Content="开通月数" Margin="0,318.791,-29.634,0" VerticalAlignment="Top" Height="37.593" FontSize="16" RenderTransformOrigin="0.5,0.5" HorizontalContentAlignment="Right" HorizontalAlignment="Right" Width="101.145">
+						<Label.RenderTransform>
+							<TransformGroup>
+								<ScaleTransform/>
+								<SkewTransform AngleX="0.032"/>
+								<RotateTransform Angle="-0.891"/>
+								<TranslateTransform/>
+							</TransformGroup>
+						</Label.RenderTransform>
+					</Label>
+					<Label x:Name="label7" Content="等级" Margin="0,364.093,-29.058,0" FontSize="16" Height="33.833" VerticalAlignment="Top" HorizontalContentAlignment="Right" HorizontalAlignment="Right" Width="100.908"/>
+					<TextBox x:Name="u_name" Height="30" Margin="78.173,80.76,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" FontSize="16" Grid.Column="1" HorizontalAlignment="Left" Width="152.255"/>
+					<TextBox x:Name="u_contact" Height="30" Margin="78.173,127.371,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" FontSize="16" Grid.Column="1" HorizontalAlignment="Left" Width="152.255"/>
+					<TextBox x:Name="u_open_time" Height="30" Margin="78.173,322.814,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" FontSize="16" Grid.Column="1" HorizontalAlignment="Left" Width="152.255"/>
+					<TextBox x:Name="u_level" Height="30" Margin="78.173,367.926,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" FontSize="16" Grid.Column="1" HorizontalAlignment="Left" Width="152.255"/>
+					<ComboBox x:Name="u_gender_cb" Height="30" Margin="78.173,172.481,0,0" VerticalAlignment="Top"  FontSize="16" Text="女" Grid.Column="1" HorizontalAlignment="Left" Width="152.255" >
+						<ComboBoxItem x:Name="现金" Content="女"/>
+						<ComboBoxItem x:Name="支付宝" Content="男"/>
+					</ComboBox>
+					<TextBox x:Name="u_birth" Margin="78.173,224,0,252.5" TextWrapping="Wrap" Text="" FontSize="16" Height="30" Grid.Column="1" HorizontalAlignment="Left" Width="152.255"/>
+					<TextBox x:Name="u_address" Margin="78.173,271.704,0,0" TextWrapping="Wrap" Text="" FontSize="16" Height="30" VerticalAlignment="Top" Grid.Column="1" HorizontalAlignment="Left" Width="152.255"/>
+					<Button x:Name="button1" Content="提交" Height="41" Margin="0,0,186.5,43.5" VerticalAlignment="Bottom" FontSize="18" Background="#FF5B7BB8" BorderBrush="{x:Null}" HorizontalAlignment="Right" Width="81.207" Grid.Column="1" Click="button_Click_1"/>
+					<Button x:Name="button1_Copy" Content="取消" Height="41" Margin="0,0,65,43.5" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="81" FontSize="18" Background="#FF5B7BB8" BorderBrush="{x:Null}" Grid.Column="1"/>
+					<Label x:Name="label1_Copy4" Content="会员ID" Margin="0,36.426,-29.058,0" VerticalAlignment="Top" Height="37.593" FontSize="16" HorizontalContentAlignment="Right" HorizontalAlignment="Right" Width="100.567"/>
+					<TextBox x:Name="u_id" Height="30" Margin="78.173,35.76,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" FontSize="16" Grid.Column="1" HorizontalAlignment="Left" Width="152.255"/>
+					<Label x:Name="label11_Copy1" Content="*请输入整数" Height="27.333" Margin="247,0,179.833,154.324" VerticalAlignment="Bottom" Foreground="#FFD1441B" Grid.Column="1"/>
+					<Button x:Name="button1_Copy4" Content="查找" Height="41" Margin="0,0,234.5,435.174" VerticalAlignment="Bottom" FontSize="18" Background="#FF5B7BB8" BorderBrush="{x:Null}" HorizontalAlignment="Right" Width="81.207" Grid.Column="1" Click="Button_Click_2"/>
+				</Grid>
+			</TabItem>
+			<TabItem Header="会员升级" Margin="241.656,16.176,-241.656,-16.176" BorderBrush="{x:Null}" Background="#FF5B7BB8" HorizontalAlignment="Left" Width="123">
+				<Grid Background="White" Height="502" VerticalAlignment="Bottom" Margin="-3.333,0,-4.667,-2.001">
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition/>
+					</Grid.ColumnDefinitions>
+					<Grid Height="49" VerticalAlignment="Bottom" Margin="-0.5,0,1.255,98.5" Background="#FFF1F9FD"/>
+					<Grid Height="49" VerticalAlignment="Top" Margin="1,156.5,-0.245,0" Background="#FFF1F9FD"/>
+					<Grid Height="49" VerticalAlignment="Top" Margin="1,44,-0.245,0" Background="#FFF1F9FD"/>
+					<Label x:Name="label8" Content="会员ID" Margin="29.613,55.282,0,0" FontSize="16" HorizontalAlignment="Left" Height="30" VerticalAlignment="Top" Width="78.438" HorizontalContentAlignment="Right"/>
+					<TextBox x:Name="s_id" TextChanged="s_id_TextChanged" Height="30" Margin="127.203,55.282,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" FontSize="16" HorizontalAlignment="Left" Width="174.501"/>
+					<TextBox x:Name="s_y_level" Height="30" Margin="127.203,164.62,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" IsEnabled="False" FontSize="16" HorizontalAlignment="Left" Width="173.282"/>
+					<TextBox x:Name="s_open_time" Height="30" Margin="129.229,108.563,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" IsEnabled="False" FontSize="16" HorizontalAlignment="Left" Width="172.475" RenderTransformOrigin="0.5,0.5">
+						<TextBox.RenderTransform>
+							<TransformGroup>
+								<ScaleTransform/>
+								<SkewTransform/>
+								<RotateTransform Angle="-0.189"/>
+								<TranslateTransform/>
+							</TransformGroup>
+						</TextBox.RenderTransform>
+					</TextBox>
+					<TextBox x:Name="s_name" HorizontalAlignment="Left" Height="30" Margin="486.203,55.282,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="170" IsEnabled="False" FontSize="16"/>
+					<TextBox x:Name="s_y_fare" HorizontalAlignment="Left" Height="30" Margin="486.203,164.62,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="170" IsEnabled="False" FontSize="16"/>
+					<TextBox x:Name="s_contact" Height="30" Margin="486.203,109.659,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" HorizontalAlignment="Left" Width="170" IsEnabled="False" FontSize="16" d:LayoutOverrides="VerticalAlignment"/>
+					<TextBox x:Name="s_x_fare" Height="30" Margin="486.203,220.951,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" HorizontalAlignment="Left" Width="170" IsEnabled="False" FontSize="16" d:LayoutOverrides="VerticalAlignment"/>
+					<Label x:Name="label9" Content="原等级" HorizontalAlignment="Left" Margin="8.781,166.032,0,0" VerticalAlignment="Top" Width="99.27" Height="27.768" FontSize="16" HorizontalContentAlignment="Right"/>
+					<Label x:Name="label10" Content="开通时间" HorizontalAlignment="Left" Margin="10,108.576,0,0" Width="99.204" FontSize="16" Height="31.083" VerticalAlignment="Top" HorizontalContentAlignment="Right"/>
+					<Label x:Name="label18" Content="姓名" HorizontalAlignment="Left" Margin="379.422,55.282,0,0" VerticalAlignment="Top" Height="30" Width="83.209" FontSize="16" HorizontalContentAlignment="Right"/>
+					<Label x:Name="label19" Content="原月费" HorizontalAlignment="Left" Margin="379.422,164.62,0,0" VerticalAlignment="Top" Width="83.209" Height="30" FontSize="16" HorizontalContentAlignment="Right"/>
+					<Label x:Name="label21" Content="联系方式" HorizontalAlignment="Left" Margin="369.847,108.576,0,0" Width="92.784" FontSize="16" Height="31.083" VerticalAlignment="Top" HorizontalContentAlignment="Right"/>
+					<Label x:Name="label7_Copy" Content="升级为" HorizontalAlignment="Left" Margin="10,218.951,0,0" VerticalAlignment="Top" FontSize="16" Height="29.968" Width="98.051" HorizontalContentAlignment="Right"/>
+					<Label x:Name="label21_Copy" Content="现月费" HorizontalAlignment="Left" Margin="375.183,220.951,0,0" Width="87.448" FontSize="16" Height="30" VerticalAlignment="Top" HorizontalContentAlignment="Right"/>
+					<Label x:Name="label8_Copy" Content="应收" Margin="64.703,0,0,158.31" Height="32.741" VerticalAlignment="Bottom" FontSize="16" HorizontalAlignment="Left" Width="75.079"/>
+					<Label x:Name="label9_Copy" Content="实收" Margin="64.703,0,0,106.389" FontSize="16" HorizontalAlignment="Left" Height="30" VerticalAlignment="Bottom" Width="84.828"/>
+					<Label x:Name="label10_Copy" Content="回找" Margin="64.703,0,0,56.719" VerticalAlignment="Bottom" Height="32.67" FontSize="16" HorizontalAlignment="Left" Width="75.079"/>
+					<TextBox x:Name="s_shoule" Margin="127.203,0,0,158.31" TextWrapping="Wrap" Text="" IsEnabled="False" Height="30" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="174.501"/>
+					<TextBox x:Name="s_actual" TextChanged="s_actual_TextChanged" Margin="127.203,0,0,106.389" TextWrapping="Wrap" Text="" Height="30" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="174.501"/>
+					<TextBox x:Name="s_return" Height="32.67" Margin="127.203,0,0,56.719" TextWrapping="Wrap" Text="" VerticalAlignment="Bottom" IsEnabled="False" HorizontalAlignment="Left" Width="174.501"/>
+					<Button x:Name="button_Copy" Content="确认升级" Margin="436.283,0,226.471,34.219" VerticalAlignment="Bottom" Height="41" FontSize="18" Width="100" Background="#FF5B7BB8" BorderBrush="{x:Null}" d:LayoutOverrides="LeftMargin, RightMargin" Click="button_Copy_Click"/>
+					<Button x:Name="button1_Copy1" Content="取  消" HorizontalAlignment="Right" Margin="0,0,94.297,32.719" VerticalAlignment="Bottom" Width="81" Height="41" FontSize="18" Background="#FF5B7BB8" BorderBrush="{x:Null}"/>
+					<ComboBox x:Name="s_level_cb" SelectionChanged="s_level_cb_SelectionChanged" Height="30" Margin="130.485,220.951,0,0" VerticalAlignment="Top"  FontSize="16" Text="女" HorizontalAlignment="Left" Width="170" >
+						<ComboBox.Background>
+							<LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+								<GradientStop Color="#FFF3F3F3" Offset="0"/>
+								<GradientStop Color="#FFEBEBEB" Offset="0.5"/>
+								<GradientStop Color="#FFDDDDDD" Offset="0.5"/>
+								<GradientStop Color="#FFF9F3F3" Offset="1"/>
+							</LinearGradientBrush>
+						</ComboBox.Background>
+						<ComboBoxItem x:Name="se" Content="senior" HorizontalAlignment="Left" Width="168"/>
+						<Button x:Name="mi" Content="middle"/>
+						<Button x:Name="ju" Content="junior"/>
+					</ComboBox>
+					<Grid Margin="1,0,-0.245,196" Background="#FFF1F9FD" Height="49" VerticalAlignment="Bottom"/>
+				</Grid>
+			</TabItem>
+			<TabItem Header="会员续期" Margin="241.33,16.175,-241.33,-16.176" BorderBrush="{x:Null}" Background="#FF5B7BB8" HorizontalAlignment="Left" Width="123" Height="38">
+				<Grid Background="White" Height="509.833" VerticalAlignment="Bottom" Margin="-4,0,-4,-10">
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition/>
+					</Grid.ColumnDefinitions>
+					<Grid Margin="1,0,-0.245,104.833" Background="#FFF1F9FD" Height="49" VerticalAlignment="Bottom"/>
+					<Grid Height="49" VerticalAlignment="Top" Margin="1,146,-0.245,0" Background="#FFF1F9FD"/>
+					<Grid Height="49" VerticalAlignment="Top" Margin="1,42.5,-0.245,0" Background="#FFF1F9FD"/>
+					<Label x:Name="label12" Content="会员ID" Margin="32.757,50.489,0,0" VerticalAlignment="Top" Height="35.265" FontSize="16" HorizontalAlignment="Left" Width="103.611" HorizontalContentAlignment="Right"/>
+					<Label x:Name="label13" Content="会员等级" Margin="32.757,153.581,0,0" VerticalAlignment="Top" Height="37.525" FontSize="16" HorizontalAlignment="Left" Width="103.611" HorizontalContentAlignment="Right"/>
+					<Label x:Name="label14" Content="月费" Margin="0,151.364,265,0" VerticalAlignment="Top" Height="37.525" FontSize="16" HorizontalAlignment="Right" Width="93.168" HorizontalContentAlignment="Right"/>
+					<Label x:Name="label16" Content="实收" Margin="32.061,364.474,0,0" VerticalAlignment="Top" Height="37.526" FontSize="16" HorizontalAlignment="Left" Width="104.307" HorizontalContentAlignment="Right"/>
+					<Label x:Name="label17" Content="回找" HorizontalAlignment="Left" Margin="40.29,399.388,0,0" VerticalAlignment="Top" Width="96.078" Height="37.526" FontSize="16" d:LayoutOverrides="HorizontalAlignment" HorizontalContentAlignment="Right"/>
+					<Label x:Name="label22" Content="姓名" HorizontalAlignment="Left" Margin="409.053,52,265,0" VerticalAlignment="Top" Height="33.754" Width="84.938" FontSize="16" HorizontalContentAlignment="Right"/>
+					<Label x:Name="label23" Content="过期时间" HorizontalAlignment="Left" Margin="409.053,103.056,265,0" VerticalAlignment="Top" Width="84.938" Height="30" FontSize="16" HorizontalContentAlignment="Right"/>
+					<Label x:Name="label24" Content="应收" HorizontalAlignment="Left" Margin="40.987,0,0,167.491" VerticalAlignment="Bottom" Width="95.381" Height="28.509" FontSize="16" d:LayoutOverrides="HorizontalAlignment" HorizontalContentAlignment="Right"/>
+					<Label x:Name="label25" Content="开通时间" HorizontalAlignment="Left" Margin="40.987,103.056,0,0" Width="95.381" FontSize="16" Height="32.263" VerticalAlignment="Top" d:LayoutOverrides="HorizontalAlignment" HorizontalContentAlignment="Right"/>
+					<TextBox x:Name="x_id" Height="35.265" Margin="163.475,50.489,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" FontSize="16" Width="170" HorizontalAlignment="Left" d:LayoutOverrides="Width" TextChanged="x_id_TextChanged_1"/>
+					<TextBox x:Name="x_level" Height="30" Margin="163.475,155.844,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" FontSize="16" IsEnabled="False" Width="170" HorizontalAlignment="Left" d:LayoutOverrides="Width"/>
+					<TextBox x:Name="x_fare" Height="30" Margin="0,155.117,77.458,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" FontSize="16" IsEnabled="False" Width="170" HorizontalAlignment="Right"/>
+					<TextBox x:Name="x_return" HorizontalAlignment="Left" Height="30" Margin="163.475,0,0,62.086" TextWrapping="Wrap" Text="" VerticalAlignment="Bottom" Width="170" FontSize="16" d:LayoutOverrides="HorizontalAlignment, VerticalAlignment" IsEnabled="False"/>
+					<TextBox x:Name="x_name" HorizontalAlignment="Left" Height="33.754" Margin="515.041,52,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="170" FontSize="16" IsEnabled="False"/>
+					<TextBox x:Name="x_end_time" HorizontalAlignment="Left" Height="30" Margin="515.041,103.056,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="170" FontSize="16" IsEnabled="False"/>
+					<TextBox x:Name="x_should" HorizontalAlignment="Left" Height="30" Margin="163.475,0,0,166" TextWrapping="Wrap" Text="" VerticalAlignment="Bottom" Width="170" FontSize="16" d:LayoutOverrides="HorizontalAlignment" IsEnabled="False" TextChanged="x_should_TextChanged"/>
+					<TextBox x:Name="x_opentime" Height="32.263" Margin="163.475,103.056,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" HorizontalAlignment="Left" Width="170" FontSize="16" IsEnabled="False" d:LayoutOverrides="HorizontalAlignment, VerticalAlignment"/>
+					<TextBox x:Name="x_actual" Height="30" Margin="163.475,0,0,113.5" TextWrapping="Wrap" Text="" VerticalAlignment="Bottom" FontSize="16" d:LayoutOverrides="VerticalAlignment, Width" Width="170" HorizontalAlignment="Left" TextChanged="x_actual_TextChanged"/>
+					<Label x:Name="label7_Copy2" Content="续期月数" Margin="29.908,208.551,0,0" FontSize="16" RenderTransformOrigin="0.443,-1.125" HorizontalAlignment="Left" Width="106.46" HorizontalContentAlignment="Right" Height="30.382" VerticalAlignment="Top"/>
+					<Label x:Name="label7_Copy1" Content="到期时间更新" Margin="368.475,210.419,265,0" VerticalAlignment="Top" FontSize="16" Height="30.382" HorizontalContentAlignment="Right"/>
+					<TextBox x:Name="x_month" Height="30" Margin="163.475,210.441,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" FontSize="16" Width="170" HorizontalAlignment="Left" d:LayoutOverrides="Width" TextChanged="x_month_TextChanged"/>
+					<TextBox x:Name="x_newend" HorizontalAlignment="Left" Height="30" Margin="515.041,210.441,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="170" FontSize="16" IsEnabled="False"/>
+					<Button x:Name="button_Copy1" Content="确认续期" Margin="0,442.916,203.815,25.916"  Height="41" FontSize="18" Background="#FF5B7BB8" BorderBrush="{x:Null}" HorizontalAlignment="Right" Width="100" Click="button_Copy1_Click"/>
+					<Button x:Name="button1_Copy2" Content="取  消" HorizontalAlignment="Right" Margin="0,0,69.959,24.5" VerticalAlignment="Bottom" Width="81" Height="41" FontSize="18" Background="#FF5B7BB8" BorderBrush="{x:Null}"/>
+					<Grid Margin="1,252.5,-0.245,208.333" Background="#FFF1F9FD"/>
+				</Grid>
+			</TabItem>
+			<TabItem Header="会员查询" Margin="-249.358,15.981,249.358,-15.982" BorderBrush="{x:Null}" Background="#FF5B7BB8" HorizontalAlignment="Right" Width="123" RenderTransformOrigin="0.546,0.547" Height="38">
+				<Grid Background="White" Margin="-3.333,11.166,-4.667,-21.166">
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition/>
+					</Grid.ColumnDefinitions>
+					<Grid Margin="1,0,-0.245,211.03" Background="#FFF1F9FD" Height="49" VerticalAlignment="Bottom">
+						<Grid Height="49" VerticalAlignment="Bottom" Margin="1,0,-1,-105.5" Background="#FFF1F9FD"/>
+					</Grid>
+					<Grid Height="49" VerticalAlignment="Top" Margin="1,164,-0.245,0" Background="#FFF1F9FD"/>
+					<Label x:Name="label_Copy8" Content="开通时间" Margin="47.447,0,0,117.848" FontSize="16" Height="30" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="79.443"/>
+					<TextBox x:Name="q_open" Margin="142.721,0,0,113.848" TextWrapping="Wrap" Text="" FontSize="24" Height="30" VerticalAlignment="Bottom" IsEnabled="False" HorizontalAlignment="Left" Width="170"/>
+					<Button x:Name="button_Copy3" Content="查  找" HorizontalAlignment="Right" Margin="0,61.805,121.698,0" VerticalAlignment="Top" Width="81" FontSize="18" Height="41" Background="#FF5B7BB8" BorderBrush="{x:Null}" RenderTransformOrigin="-1.467,1.218" d:LayoutOverrides="HorizontalAlignment" Click ="Button_Click"/>
+					<Label x:Name="label_Copy9" Content="姓名" HorizontalAlignment="Left" Margin="76.943,173.602,0,0" FontSize="16" Width="43.469" Height="30" VerticalAlignment="Top"/>
+					<TextBox x:Name="q_name" Margin="143.145,173.602,0,0" TextWrapping="Wrap" Text="" FontSize="24" HorizontalAlignment="Left" Width="170" Height="30" VerticalAlignment="Top" IsEnabled="False"/>
+					<Label x:Name="label_Copy10" Content="联系方式" Margin="379.772,222.721,298.756,248.645" FontSize="16"/>
+					<TextBox x:Name="q_contact" Margin="0,221.257,113.523,0" TextWrapping="Wrap" Text="" FontSize="24" HorizontalAlignment="Right" Width="170" IsEnabled="False" Height="33.082" VerticalAlignment="Top"/>
+					<Label x:Name="label_Copy11" Content="生日" HorizontalAlignment="Left" Margin="76.943,221.185,0,0" FontSize="16" Width="43.469" Height="30.7" VerticalAlignment="Top"/>
+					<TextBox x:Name="q_birth" Margin="143.145,222.303,0,0" TextWrapping="Wrap" Text="" FontSize="24" HorizontalAlignment="Left" Width="170" Height="30" IsEnabled="False" VerticalAlignment="Top" d:LayoutOverrides="Height"/>
+					<Label x:Name="label_Copy12" Content="性别" HorizontalAlignment="Right" Margin="0,173.565,307.331,0" FontSize="16" VerticalAlignment="Top" Height="30.037" Width="43.469"/>
+					<TextBox x:Name="q_gentle" Margin="0,173.602,114.598,0" TextWrapping="Wrap" Text="" FontSize="24" Height="30" VerticalAlignment="Top" HorizontalAlignment="Right" Width="170" IsEnabled="False"/>
+					<Label x:Name="label_Copy13" Content="住址" HorizontalAlignment="Left" Margin="76.943,0,0,219.249" FontSize="16" VerticalAlignment="Bottom" Height="30" Width="43.469"/>
+					<TextBox x:Name="q_address" Margin="143.145,0,0,219.249" TextWrapping="Wrap" Text="" FontSize="24" Height="30" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="170" IsEnabled="False"/>
+					<Label x:Name="label_Copy14" Content="会员ID" Margin="57.957,0,0,420.143" FontSize="16" HorizontalAlignment="Left" Width="62.455" Height="35.767" VerticalAlignment="Bottom"/>
+					<TextBox x:Name="mid" Height="30" Margin="141.66,68.538,447.839,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" FontSize="24" Width="170"/>
+					<Label x:Name="label_Copy15" Content="到期时间" Margin="374.196,0,305.831,115.348" FontSize="16" Height="30" VerticalAlignment="Bottom"/>
+					<TextBox x:Name="q_end" Margin="0,0,112,115.348" TextWrapping="Wrap" Text="" FontSize="24" HorizontalAlignment="Right" Width="170" Height="30" IsEnabled="False" VerticalAlignment="Bottom" d:LayoutOverrides="Height"/>
+					<Label x:Name="label_Copy16" Content="会员等级" Margin="46.947,0,0,169.625" VerticalAlignment="Bottom" FontSize="16" Height="30" HorizontalAlignment="Left" Width="79.867"/>
+					<TextBox x:Name="q_level" Height="30" Margin="143.145,0,0,167.625" TextWrapping="Wrap" Text="" VerticalAlignment="Bottom" FontSize="24" HorizontalAlignment="Left" Width="170" IsEnabled="False"/>
+					<Label x:Name="label_Copy17" Content="会员ID" Margin="0,0,307.354,219.603" VerticalAlignment="Bottom" FontSize="16" Height="30" HorizontalAlignment="Right" Width="62.485"/>
+					<TextBox x:Name="q_id" Height="30" Margin="0,0,113.523,219.603" TextWrapping="Wrap" Text="" VerticalAlignment="Bottom" FontSize="24" HorizontalAlignment="Right" Width="170" IsEnabled="False"/>
+					<Label x:Name="label_Copy18" Content="会员折扣" Margin="375.673,0,304.354,166.625" VerticalAlignment="Bottom" FontSize="16" Height="30"/>
+					<TextBox x:Name="q_discount" Height="30" Margin="0,0,113.523,166.625" TextWrapping="Wrap" Text="" VerticalAlignment="Bottom" FontSize="24" HorizontalAlignment="Right" Width="170" IsEnabled="False"/>
+				</Grid>
+			</TabItem>
+			<TabItem Header="会员注册" Margin="-494.512,0,494.512,-15.653" Background="#FF5B7BB8" BorderBrush="{x:Null}" Height="38" VerticalAlignment="Bottom" Width="123">
+				<Grid Margin="-4,0,-4,-10" Loaded="Grid_Loaded_1" Height="510.279" VerticalAlignment="Bottom" Background="White" HorizontalAlignment="Left" Width="763.422">
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition Width="39*"/>
+						<ColumnDefinition Width="152*"/>
+					</Grid.ColumnDefinitions>
+					<Grid Margin="1,228,0.422,233.279" Background="#FFF1F9FD" Grid.ColumnSpan="2">
+						<Grid Height="49" VerticalAlignment="Bottom" Margin="1,0,-1,-95" Background="#FFF1F9FD"/>
+					</Grid>
+					<Grid Height="49" VerticalAlignment="Top" Margin="1,134,0.422,0" Background="#FFF1F9FD" Grid.ColumnSpan="2"/>
+					<Grid Height="49" VerticalAlignment="Top" Margin="1,41,0.422,0" Background="#FFF1F9FD" Grid.ColumnSpan="2"/>
+					<Label x:Name="label_Copy7" Content="会员ID" FontSize="16" HorizontalAlignment="Left" Margin="61,49.177,0,0" VerticalAlignment="Top" Height="29.794" Width="71.009"/>
+					<Label x:Name="label1_Copy" Content="姓名" FontSize="16" HorizontalAlignment="Left" Margin="77.5,96.063,0,0" Width="54.162" Height="29.794" VerticalAlignment="Top"/>
+					<Label x:Name="label2_Copy" Content="联系方式" FontSize="16" HorizontalAlignment="Left" Margin="44.5,142.198,0,0" VerticalAlignment="Top" Height="29.794" Width="87.509"/>
+					<Label x:Name="label3_Copy" Content="性别" FontSize="16" Margin="77.5,240.596,0,239.889" HorizontalAlignment="Left" Width="54.509"/>
+					<Label x:Name="label4_Copy" Content="生日" FontSize="16" HorizontalAlignment="Left" Margin="77.5,0,0,194.068" Width="54.509" Height="30.361" VerticalAlignment="Bottom"/>
+					<Label x:Name="label5_Copy" Content="住址" FontSize="16" HorizontalAlignment="Left" Margin="76,333.005,0,0" VerticalAlignment="Top" Height="29.794" Width="55.275"/>
+
+
+					<TextBox x:Name="c_id" Height="30" Margin="137.662,49.177,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="16" BorderBrush="#FFE8E8E8"  Width="170" HorizontalAlignment="Left" Grid.ColumnSpan="2" Loaded="c_id_Loaded" IsEnabled="False"/>
+					<TextBox x:Name="c_name"  FontSize="16" Margin="137.662,95.904,0,0" TextWrapping="Wrap" Text="" Height="30" VerticalAlignment="Top" Width="170" HorizontalAlignment="Left" Grid.ColumnSpan="2"/>
+					<TextBox x:Name="c_contact"  FontSize="16" Height="30"  Margin="137.662,142.198,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="170" HorizontalAlignment="Left" Grid.ColumnSpan="2"/>
+					<ComboBox x:Name="c_gender_cb" Margin="138.775,239.596,0,240.683"  FontSize="16" Text="女" Width="170" HorizontalAlignment="Left" Grid.ColumnSpan="2">
+						<ComboBoxItem x:Name="现金1" Content="女"/>
+						<ComboBoxItem x:Name="支付宝1" Content="男"/>
+					</ComboBox>
+
+					<TextBox x:Name="c_birth"  FontSize="16" Margin="137.662,0,0,194.429" TextWrapping="Wrap" Text="" Width="170" Height="30" HorizontalAlignment="Left" VerticalAlignment="Bottom" Grid.ColumnSpan="2"/>
+					<TextBox x:Name="c_address"  FontSize="16" Height="30"  Margin="137.275,332.799,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="170" RenderTransformOrigin="0.558,-0.36" HorizontalAlignment="Left" Grid.ColumnSpan="2"/>
+					<Label x:Name="label6_Copy" Content="会员月费" FontSize="16" HorizontalAlignment="Left" Margin="226.434,94.761,0,0" VerticalAlignment="Top" Height="29.794" Width="96.685" Grid.Column="1"/>
+					<TextBox x:Name="c_fare"  FontSize="16" Height="30"  Margin="315.619,95.24,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" IsEnabled="False" HorizontalAlignment="Left" Width="173.641" Grid.Column="1"/>
+					<Label x:Name="label18_Copy" Content="会员等级" HorizontalAlignment="Left" Margin="223.124,47.273,0,0" VerticalAlignment="Top" Height="35.744" Width="95.17" FontSize="16" Grid.Column="1"/>
+					<Label x:Name="label19_Copy" Content="开通月数" HorizontalAlignment="Left" Margin="226.434,140.432,0,0" Width="100.136" FontSize="16" Height="35.744" VerticalAlignment="Top" Grid.Column="1"/>
+					<ComboBox x:Name="c_level" SelectionChanged="c_level_SelectionChanged" Height="30" Margin="314.527,48.677,112.295,0" VerticalAlignment="Top"  FontSize="16" Text="女" Grid.Column="1">
+						<ComboBoxItem x:Name="comb1" Content="senior"/>
+						<ComboBoxItem x:Name="comb2" Content="middle"/>
+						<ComboBoxItem x:Name="comb3" Content="jonier"/>
+					</ComboBox>
+					<TextBox x:Name="c_open" TextChanged="c_open_TextChanged" HorizontalAlignment="Left" Height="30" Margin="314.527,141.836,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="174.733" FontSize="16" Grid.Column="1"/>
+					<Label x:Name="label8_Copy1" Content="应收" HorizontalAlignment="Right" Margin="0,238.154,277.985,241.359" Width="68.636" FontSize="16" Grid.Column="1"/>
+					<Label x:Name="label9_Copy1" Content="实收" HorizontalAlignment="Right" Margin="0,0,281.451,195.26" Width="65.185" FontSize="16" Height="30.238" VerticalAlignment="Bottom" Grid.Column="1"/>
+					<Label x:Name="label10_Copy1" Content="回找" HorizontalAlignment="Right" Margin="0,0,276.295,143.079" VerticalAlignment="Bottom" Width="70.326" Height="35.744" FontSize="16" Grid.Column="1"/>
+					<TextBox x:Name="c_should" HorizontalAlignment="Left" Margin="314.527,238.154,0,242.125" TextWrapping="Wrap" Text="" Width="174.423" FontSize="16" IsEnabled="False" Grid.Column="1"/>
+					<TextBox x:Name="c_actual" TextChanged="c_actual_TextChanged" HorizontalAlignment="Left" Margin="314.527,0,0,195.498" TextWrapping="Wrap" Text="" Width="174.733" FontSize="16" Height="30" VerticalAlignment="Bottom" Grid.Column="1"/>
+					<TextBox x:Name="c_return" HorizontalAlignment="Left" Height="30" Margin="314.527,0,0,148.823" TextWrapping="Wrap" Text="" VerticalAlignment="Bottom" Width="174.423" FontSize="16" IsEnabled="False" Grid.Column="1"/>
+					<Button x:Name="button_Copy2" Click="button_Copy2_Click" Content="提 交" Margin="0,0,226.621,58" VerticalAlignment="Bottom" Height="41" FontSize="18" HorizontalAlignment="Right" Width="81" Background="#FF5B7BB8" BorderBrush="{x:Null}" Grid.Column="1"/>
+					<Button x:Name="button1_Copy3" Content="取  消" HorizontalAlignment="Right" Margin="0,0,111.985,57.5" VerticalAlignment="Bottom" Width="81" Height="41" FontSize="18" Background="#FF5B7BB8" BorderBrush="{x:Null}" Grid.Column="1"/>
+					<Label x:Name="label11" Content="*请输入11位手机号" HorizontalAlignment="Left" Height="27.333" Margin="139.755,188.343,0,0" VerticalAlignment="Top" Width="168.667" Foreground="#FFD1441B" Grid.ColumnSpan="2"/>
+					<Label x:Name="label11_Copy2" Content="*请输入整数" HorizontalAlignment="Right" Height="27.333" Margin="0,191.343,123.5,0" VerticalAlignment="Top" Width="168.667" Foreground="#FFD1441B" Grid.Column="1"/>
+				</Grid>
+			</TabItem>
+		</TabControl>
+		<Label x:Name="UserId" HorizontalAlignment="Left" Height="23.333" Margin="560.922,14.326,0,0" VerticalAlignment="Top" Width="69.333" Grid.Column="1" IsEnabled="False"/>
+		<Label x:Name="UserName" HorizontalAlignment="Left" Height="34.333" Margin="560.922,39.654,0,0" VerticalAlignment="Top" Width="69.333" Grid.Column="1" Content="" IsEnabled="False"/>
+		<DatePicker Margin="0,43,365,0" SelectedDate="{x:Static System:DateTime.Now}" IsEnabled="False" HorizontalAlignment="Right" Height="24" VerticalAlignment="Top" Width="133" Grid.Column="1"/>
+	</Grid>
+</Window>

@@ -1,0 +1,110 @@
+c:\users\administrator\documents\visual studio 2015\Projects\BookStore\BookStore\bin\Debug\BookStore.exe.config
+C:\Users\Administrator\documents\visual studio 2015\Projects\BookStore\BookStore\obj\Debug\BookStore.csprojResolveAssemblyReference.cache
+C:\Users\Administrator\documents\visual studio 2015\Projects\BookStore\BookStore\obj\Debug\MainWindow.g.cs
+C:\Users\Administrator\documents\visual studio 2015\Projects\BookStore\BookStore\obj\Debug\MemberManage.g.cs
+C:\Users\Administrator\documents\visual studio 2015\Projects\BookStore\BookStore\obj\Debug\SaleMen.g.cs
+C:\Users\Administrator\documents\visual studio 2015\Projects\BookStore\BookStore\obj\Debug\App.g.cs
+C:\Users\Administrator\documents\visual studio 2015\Projects\BookStore\BookStore\obj\Debug\BookStore_MarkupCompile.cache
+C:\Users\Administrator\documents\visual studio 2015\Projects\BookStore\BookStore\obj\Debug\BookStore_MarkupCompile.lref
+C:\Users\Administrator\documents\visual studio 2015\Projects\BookStore\BookStore\bin\Debug\BookStore.exe
+C:\Users\Administrator\documents\visual studio 2015\Projects\BookStore\BookStore\bin\Debug\BookStore.pdb
+C:\Users\Administrator\documents\visual studio 2015\Projects\BookStore\BookStore\obj\Debug\MainWindow.baml
+C:\Users\Administrator\documents\visual studio 2015\Projects\BookStore\BookStore\obj\Debug\MemberManage.baml
+C:\Users\Administrator\documents\visual studio 2015\Projects\BookStore\BookStore\obj\Debug\SaleMen.baml
+C:\Users\Administrator\documents\visual studio 2015\Projects\BookStore\BookStore\obj\Debug\BookStore.g.resources
+C:\Users\Administrator\documents\visual studio 2015\Projects\BookStore\BookStore\obj\Debug\BookStore.Properties.Resources.resources
+C:\Users\Administrator\documents\visual studio 2015\Projects\BookStore\BookStore\obj\Debug\BookStore.csproj.GenerateResource.Cache
+C:\Users\Administrator\documents\visual studio 2015\Projects\BookStore\BookStore\obj\Debug\BookStore.exe
+C:\Users\Administrator\documents\visual studio 2015\Projects\BookStore\BookStore\obj\Debug\BookStore.pdb
+C:\Users\Administrator\Documents\Visual Studio 2015\Projects\BookStore\BookStore\obj\Debug\ShopKeeper.g.cs
+C:\Users\Administrator\Documents\Visual Studio 2015\Projects\BookStore\BookStore\obj\Debug\StorageAdmin.g.cs
+C:\Users\Administrator\Documents\Visual Studio 2015\Projects\BookStore\BookStore\obj\Debug\ShopKeeper.baml
+C:\Users\Administrator\Documents\Visual Studio 2015\Projects\BookStore\BookStore\obj\Debug\StorageAdmin.baml
+C:\Users\Administrator\documents\visual studio 2015\Projects\BookStore\BookStore\obj\Debug\Vista.baml
+C:\Users\Administrator\documents\visual studio 2015\Projects\BookStore\BookStore\obj\Debug\App.baml
+G:\QQ文件\MobileFile\517006351\FileRecv\BookStore(含shopkeeper)\BookStore\BookStore\bin\Debug\BookStore.exe.config
+G:\QQ文件\MobileFile\517006351\FileRecv\BookStore(含shopkeeper)\BookStore\BookStore\obj\Debug\BookStore.exe
+G:\QQ文件\MobileFile\517006351\FileRecv\BookStore(含shopkeeper)\BookStore\BookStore\obj\Debug\BookStore.pdb
+G:\QQ文件\MobileFile\517006351\FileRecv\BookStore(含shopkeeper)\BookStore\BookStore\bin\Debug\BookStore.exe
+G:\QQ文件\MobileFile\517006351\FileRecv\BookStore(含shopkeeper)\BookStore\BookStore\bin\Debug\BookStore.pdb
+G:\QQ文件\MobileFile\517006351\FileRecv\BookStore(含shopkeeper)\BookStore\BookStore\obj\Debug\BookStore.csprojResolveAssemblyReference.cache
+G:\QQ文件\MobileFile\517006351\FileRecv\BookStore(含shopkeeper)\BookStore\BookStore\obj\Debug\Vista.baml
+G:\QQ文件\MobileFile\517006351\FileRecv\BookStore(含shopkeeper)\BookStore\BookStore\obj\Debug\SaleMen.g.cs
+G:\QQ文件\MobileFile\517006351\FileRecv\BookStore(含shopkeeper)\BookStore\BookStore\obj\Debug\ShopKeeper.g.cs
+G:\QQ文件\MobileFile\517006351\FileRecv\BookStore(含shopkeeper)\BookStore\BookStore\obj\Debug\StorageAdmin.g.cs
+G:\QQ文件\MobileFile\517006351\FileRecv\BookStore(含shopkeeper)\BookStore\BookStore\obj\Debug\App.g.cs
+G:\QQ文件\MobileFile\517006351\FileRecv\BookStore(含shopkeeper)\BookStore\BookStore\obj\Debug\BookStore_MarkupCompile.cache
+G:\QQ文件\MobileFile\517006351\FileRecv\BookStore(含shopkeeper)\BookStore\BookStore\obj\Debug\BookStore_MarkupCompile.lref
+G:\QQ文件\MobileFile\517006351\FileRecv\BookStore(含shopkeeper)\BookStore\BookStore\obj\Debug\App.baml
+G:\QQ文件\MobileFile\517006351\FileRecv\BookStore(含shopkeeper)\BookStore\BookStore\obj\Debug\SaleMen.baml
+G:\QQ文件\MobileFile\517006351\FileRecv\BookStore(含shopkeeper)\BookStore\BookStore\obj\Debug\ShopKeeper.baml
+G:\QQ文件\MobileFile\517006351\FileRecv\BookStore(含shopkeeper)\BookStore\BookStore\obj\Debug\StorageAdmin.baml
+G:\QQ文件\MobileFile\517006351\FileRecv\BookStore(含shopkeeper)\BookStore\BookStore\obj\Debug\BookStore.g.resources
+G:\QQ文件\MobileFile\517006351\FileRecv\BookStore(含shopkeeper)\BookStore\BookStore\obj\Debug\BookStore.Properties.Resources.resources
+G:\QQ文件\MobileFile\517006351\FileRecv\BookStore(含shopkeeper)\BookStore\BookStore\obj\Debug\BookStore.csproj.GenerateResource.Cache
+C:\Users\Administrator\Desktop\BookStore(含shopkeeper)\BookStore\BookStore\bin\Debug\BookStore.exe.config
+C:\Users\Administrator\Desktop\BookStore(含shopkeeper)\BookStore\BookStore\obj\Debug\BookStore.exe
+C:\Users\Administrator\Desktop\BookStore(含shopkeeper)\BookStore\BookStore\obj\Debug\BookStore.pdb
+C:\Users\Administrator\Desktop\BookStore(含shopkeeper)\BookStore(含shopkeeper)\BookStore\bin\Debug\BookStore.exe.config
+C:\Users\Administrator\Desktop\BookStore(含shopkeeper)\BookStore(含shopkeeper)\BookStore\obj\Debug\BookStore.exe
+C:\Users\Administrator\Desktop\BookStore(含shopkeeper)\BookStore(含shopkeeper)\BookStore\obj\Debug\BookStore.pdb
+C:\Users\Administrator\Desktop\BookStore(含shopkeeper)\BookStore(含shopkeeper)\BookStore\bin\Debug\BookStore.exe
+C:\Users\Administrator\Desktop\BookStore(含shopkeeper)\BookStore(含shopkeeper)\BookStore\bin\Debug\BookStore.pdb
+C:\Users\Administrator\Desktop\BookStore(含shopkeeper)\BookStore(含shopkeeper)\BookStore\obj\Debug\BookStore.csprojResolveAssemblyReference.cache
+C:\Users\Administrator\Desktop\BookStore(含shopkeeper)\BookStore(含shopkeeper)\BookStore\obj\Debug\Vista.baml
+C:\Users\Administrator\Desktop\BookStore(含shopkeeper)\BookStore(含shopkeeper)\BookStore\obj\Debug\SaleMen.g.cs
+C:\Users\Administrator\Desktop\BookStore(含shopkeeper)\BookStore(含shopkeeper)\BookStore\obj\Debug\StorageAdmin.g.cs
+C:\Users\Administrator\Desktop\BookStore(含shopkeeper)\BookStore(含shopkeeper)\BookStore\obj\Debug\App.g.cs
+C:\Users\Administrator\Desktop\BookStore(含shopkeeper)\BookStore(含shopkeeper)\BookStore\obj\Debug\BookStore_MarkupCompile.cache
+C:\Users\Administrator\Desktop\BookStore(含shopkeeper)\BookStore(含shopkeeper)\BookStore\obj\Debug\BookStore_MarkupCompile.lref
+C:\Users\Administrator\Desktop\BookStore(含shopkeeper)\BookStore(含shopkeeper)\BookStore\obj\Debug\App.baml
+C:\Users\Administrator\Desktop\BookStore(含shopkeeper)\BookStore(含shopkeeper)\BookStore\obj\Debug\SaleMen.baml
+C:\Users\Administrator\Desktop\BookStore(含shopkeeper)\BookStore(含shopkeeper)\BookStore\obj\Debug\StorageAdmin.baml
+C:\Users\Administrator\Desktop\BookStore(含shopkeeper)\BookStore(含shopkeeper)\BookStore\obj\Debug\BookStore.g.resources
+C:\Users\Administrator\Desktop\BookStore(含shopkeeper)\BookStore(含shopkeeper)\BookStore\obj\Debug\BookStore.Properties.Resources.resources
+C:\Users\Administrator\Desktop\BookStore(含shopkeeper)\BookStore(含shopkeeper)\BookStore\obj\Debug\BookStore.csproj.GenerateResource.Cache
+C:\Users\Administrator\Desktop\BookStore(含shopkeeper)\BookStore(含shopkeeper)\BookStore\obj\Debug\ShopKeeper.g.cs
+E:\courses\数据库原理与应用\界面\BookStore(含shopkeeper)\BookStore\bin\Debug\BookStore.exe.config
+E:\courses\数据库原理与应用\界面\BookStore(含shopkeeper)\BookStore\obj\Debug\BookStore.exe
+E:\courses\数据库原理与应用\界面\BookStore(含shopkeeper)\BookStore\obj\Debug\BookStore.pdb
+E:\courses\数据库原理与应用\界面\BookStore(含shopkeeper)\BookStore\obj\Debug\BookStore.csprojResolveAssemblyReference.cache
+E:\courses\数据库原理与应用\界面\BookStore(含shopkeeper)\BookStore\obj\Debug\Vista.baml
+E:\courses\数据库原理与应用\界面\BookStore(含shopkeeper)\BookStore\obj\Debug\SaleMen.g.cs
+E:\courses\数据库原理与应用\界面\BookStore(含shopkeeper)\BookStore\obj\Debug\ShopKeeper.g.cs
+E:\courses\数据库原理与应用\界面\BookStore(含shopkeeper)\BookStore\obj\Debug\StorageAdmin.g.cs
+E:\courses\数据库原理与应用\界面\BookStore(含shopkeeper)\BookStore\obj\Debug\App.g.cs
+E:\courses\数据库原理与应用\界面\BookStore(含shopkeeper)\BookStore\obj\Debug\BookStore_MarkupCompile.cache
+E:\courses\数据库原理与应用\界面\BookStore(含shopkeeper)\BookStore\obj\Debug\BookStore_MarkupCompile.lref
+E:\courses\数据库原理与应用\界面\BookStore(含shopkeeper)\BookStore\bin\Debug\BookStore.exe
+E:\courses\数据库原理与应用\界面\BookStore(含shopkeeper)\BookStore\bin\Debug\BookStore.pdb
+E:\courses\数据库原理与应用\界面\BookStore(含shopkeeper)\BookStore\obj\Debug\App.baml
+E:\courses\数据库原理与应用\界面\BookStore(含shopkeeper)\BookStore\obj\Debug\SaleMen.baml
+E:\courses\数据库原理与应用\界面\BookStore(含shopkeeper)\BookStore\obj\Debug\ShopKeeper.baml
+E:\courses\数据库原理与应用\界面\BookStore(含shopkeeper)\BookStore\obj\Debug\StorageAdmin.baml
+E:\courses\数据库原理与应用\界面\BookStore(含shopkeeper)\BookStore\obj\Debug\BookStore.g.resources
+E:\courses\数据库原理与应用\界面\BookStore(含shopkeeper)\BookStore\obj\Debug\BookStore.Properties.Resources.resources
+E:\courses\数据库原理与应用\界面\BookStore(含shopkeeper)\BookStore\obj\Debug\BookStore.csproj.GenerateResource.Cache
+E:\courses\数据库原理与应用\界面\BookStore(含shopkeeper)\BookStore\obj\Debug\MainWindow.g.cs
+E:\courses\数据库原理与应用\界面\BookStore(含shopkeeper)\BookStore\obj\Debug\MainWindow.baml
+C:\Users\RUI\Desktop\BookStore(final)\BookStore\bin\Debug\BookStore.exe.config
+C:\Users\RUI\Desktop\BookStore(final)\BookStore\obj\Debug\BookStore.exe
+C:\Users\RUI\Desktop\BookStore(final)\BookStore\obj\Debug\BookStore.pdb
+C:\Users\RUI\Desktop\BookStore(final)\BookStore\bin\Debug\BookStore.exe
+C:\Users\RUI\Desktop\BookStore(final)\BookStore\bin\Debug\BookStore.pdb
+C:\Users\RUI\Desktop\BookStore(final)\BookStore\obj\Debug\BookStore.csprojResolveAssemblyReference.cache
+C:\Users\RUI\Desktop\BookStore(final)\BookStore\obj\Debug\Vista.baml
+C:\Users\RUI\Desktop\BookStore(final)\BookStore\obj\Debug\MainWindow.g.cs
+C:\Users\RUI\Desktop\BookStore(final)\BookStore\obj\Debug\SaleMen.g.cs
+C:\Users\RUI\Desktop\BookStore(final)\BookStore\obj\Debug\ShopKeeper.g.cs
+C:\Users\RUI\Desktop\BookStore(final)\BookStore\obj\Debug\StorageAdmin.g.cs
+C:\Users\RUI\Desktop\BookStore(final)\BookStore\obj\Debug\App.g.cs
+C:\Users\RUI\Desktop\BookStore(final)\BookStore\obj\Debug\BookStore_MarkupCompile.cache
+C:\Users\RUI\Desktop\BookStore(final)\BookStore\obj\Debug\BookStore_MarkupCompile.lref
+C:\Users\RUI\Desktop\BookStore(final)\BookStore\obj\Debug\App.baml
+C:\Users\RUI\Desktop\BookStore(final)\BookStore\obj\Debug\MainWindow.baml
+C:\Users\RUI\Desktop\BookStore(final)\BookStore\obj\Debug\SaleMen.baml
+C:\Users\RUI\Desktop\BookStore(final)\BookStore\obj\Debug\ShopKeeper.baml
+C:\Users\RUI\Desktop\BookStore(final)\BookStore\obj\Debug\StorageAdmin.baml
+C:\Users\RUI\Desktop\BookStore(final)\BookStore\obj\Debug\BookStore.g.resources
+C:\Users\RUI\Desktop\BookStore(final)\BookStore\obj\Debug\BookStore.Properties.Resources.resources
+C:\Users\RUI\Desktop\BookStore(final)\BookStore\obj\Debug\BookStore.csproj.GenerateResource.Cache
